@@ -1,0 +1,40 @@
+*******Ahmed Abdulwahid Omar Alasaifer
+*******27952274
+
+- Explanation:
+        This program is designed to allow the user to send data from client window and being displayed in the server window.
+        The client program is running in a normal terminal environment, whereas the server is running using a user friendly environment through the iol
+
+################################################################################
+
+- Running the Program:
+1- Compile the server file and name it server
+2- Compile the client file and name it whatever you want
+3- There are two ways to run the program:
+    a- run it in a single window by typing the following command in the terminal:
+        iol ./server
+    b- run it in different windows by running the runstandalone.sh file as the following:
+        sudo ./runstandalone.sh
+4- Run the client program in a different terminal window using the following command:
+   ./name you have compiled with
+5- If the user choose to run the program using option b, they can access the server window by pressing RigthCrtl and f8 buttons, and to get back RigthCrtl and f7 buttons.
+
+5- In both options the user can quit the program using the quit button at the top right corner of the server window (this is when running task 2 and task 3)
+
+################################################################################
+
+- Notes:
+    1-In the latest version of the program (task 3) the server is able to connect to up to 5 client and assign different display box to display data sent from each client
+    2- After the fifth connection, the server will simply won't display any new connection and will keep receiving data from the existed clients. And this is achieved by repeatedly checking number of connections and once this number reaches five, each subsequent attempt to connect will be ignored by not allowing the code to reach to the point where accept() function is defined.
+    3- Each client is assigned a client name which is displayed as a header of each box
+    4- The process of checking whether a data the server is receiving is from a new client or existing one, is done by adding the server descriptor to the fd_set(), which means once a new client trying to connect the server file will be triggered, therefore its descriptor will be the output of the select function.
+################################################################################
+    
+Limitations:
+    1- The program is only able to receive data from the client and not able to send anything back to the client. However, this can be solved by firstly modifying the client program to be run using the iol and receive data. Secondly, a second box can be added for each new client connection that allow the user to enter some data that to be sent to that client.
+    2- When a client terminate, its displayed box stays there, which prevent any new connection from coming in.
+    
+
+
+
+
